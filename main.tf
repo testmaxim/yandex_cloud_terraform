@@ -1,26 +1,29 @@
 terraform {
+  required_version = ">= 0.13"
+
   required_providers {
     yandex = {
       source  = "yandex-cloud/yandex"
-      version = "0.60.0"
+      version = "0.81.0"
     }
   }
+# -------
   backend "s3" {
     endpoint   = "storage.yandexcloud.net"
     bucket     = "tf-state-bucket-testmaxim"
     region     = "ru-central1-a"
     key        = "issue1/lemp.tfstate"
-    access_key = ""
-    secret_key = ""
+    access_key = "<my_access_key>"
+    secret_key = "<my_secret_key>"
 
     skip_region_validation      = true
     skip_credentials_validation = true
   }
 }
 provider "yandex" {
-  token     = ""
-  cloud_id  = ""
-  folder_id = ""
+  token     = "<token>"
+  cloud_id  = "<cloud_id>"
+  folder_id = "<folder_id>"
   zone      = "ru-central1-a"
 }
 

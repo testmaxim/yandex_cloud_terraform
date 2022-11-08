@@ -1,0 +1,5 @@
+/.terraform
+/bucket/.terraform
+/modules/.terraform
+.terraform.lock.hcl
+.pre-commit-config.yaml.swp

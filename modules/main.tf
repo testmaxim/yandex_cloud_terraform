@@ -12,7 +12,7 @@ resource "yandex_compute_instance" "vm" {
   }
   network_interface {
     subnet_id = var.vpc_subnet_id
-    nat = true
+    nat       = true
   }
   resources {
     cores  = 2
