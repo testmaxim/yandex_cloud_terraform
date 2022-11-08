@@ -7,7 +7,7 @@ terraform {
       version = "0.81.0"
     }
   }
-# -------
+  # -------
   backend "s3" {
     endpoint   = "storage.yandexcloud.net"
     bucket     = "tf-state-bucket-testmaxim"
@@ -47,6 +47,7 @@ resource "yandex_vpc_subnet" "subnet2" {
 
 module "ya_instance_1" {
   source                = "./modules"
+  version               = "0.0.1"
   instance_family_image = "lemp"
   vpc_subnet_id         = yandex_vpc_subnet.subnet1.id
   vpc_subnet_zone       = yandex_vpc_subnet.subnet1.zone
@@ -54,6 +55,7 @@ module "ya_instance_1" {
 
 module "ya_instance_2" {
   source                = "./modules"
+  version               = "0.0.1"
   instance_family_image = "lamp"
   vpc_subnet_id         = yandex_vpc_subnet.subnet2.id
   vpc_subnet_zone       = yandex_vpc_subnet.subnet2.zone
